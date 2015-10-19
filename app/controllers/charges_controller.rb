@@ -13,6 +13,7 @@ class ChargesController < ApplicationController
 			currency: 'usd'
 		)
 
+		current_user.premium!
 		flash[:notice] = "Thanks for your support, #{current_user.email}"
 		redirect_to user_path(current_user)
 
@@ -27,6 +28,11 @@ class ChargesController < ApplicationController
 			description: "Premium Membership - #{current_user.email}",
 			amount: Amount.default
 		}
+	end
+
+	def destroy
+		current_user.member!
+		!current_user.wikis.private!
 	end
 
 end
