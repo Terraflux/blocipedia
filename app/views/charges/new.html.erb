@@ -1,0 +1,8 @@
+<%= form_tag charges_path do %>
+	<h4>Click to go Premium</h4>
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript">
+		Stripe.setPublishableKey('pk_test_luzKMuG0lJh7sp3q1nD9BVGE');
+	</script>
+	<script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
+<% end %>
