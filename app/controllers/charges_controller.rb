@@ -15,7 +15,7 @@ class ChargesController < ApplicationController
 
 		current_user.premium!
 		flash[:notice] = "Thanks for your support, #{current_user.email}"
-		redirect_to user_path(current_user)
+		redirect_to wikis_path
 
 	rescue Stripe::CardError => e
 		flash[:error] = e.message
@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
 
 	def destroy
 		current_user.member!
-		!current_user.wikis.private!
+		!current_user.wikis.is_private!
 	end
 
 end

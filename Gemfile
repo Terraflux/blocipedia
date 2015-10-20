@@ -14,6 +14,8 @@ gem 'stripe'
 
 gem 'figaro', '1.0'
 
+gem 'redcarpet'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
