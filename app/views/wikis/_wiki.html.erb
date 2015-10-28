@@ -1,8 +1,9 @@
 <div class="media">
 	<div class="media-body">
-		<h3><%= link_to wiki.title, wiki %></h3>
+		<h3><%= link_to wiki.title, wiki %> <% if wiki.is_private? %>Private <% end %></h3>
 		<small>
 			<p><%= markdown wiki.body %></p>
+			<p><%= wiki.collaborators %></p>
 		</small>
 	</div>
 </div>
