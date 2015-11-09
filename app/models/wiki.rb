@@ -15,6 +15,9 @@ class Wiki < ActiveRecord::Base
 
 ## scope :visible_to, -> (user){(user.admin? || user.premium?) ? all : where(is_private: false)}
 
+  def find_collaborator(user)
+    collaborators.find_by(user_id: user.id)
+  end
 
 
   private

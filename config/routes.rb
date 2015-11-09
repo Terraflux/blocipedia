@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  
-  resources :wikis
 
-  devise_for :users
+	devise_for :users
 
-  resources :charges, only: [:new, :create, :destroy]
+	resources :wikis do
+		resources :collaborators, only: [:new, :create, :destroy]
+	end
 
-  get 'welcome/index'
+	resources :charges, only: [:new, :create, :destroy]
 
-  get 'welcome/about'
+  	get 'welcome/index'
 
-  root 'welcome#about'
+  	get 'welcome/about'
+
+  	root 'welcome#about'
 
 end

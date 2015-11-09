@@ -1,0 +1,14 @@
+<table border="1">
+	<% @users.each do |user| %>
+		<tr>
+			<td> <%= user.email %> </td>
+			<td> 
+				<% if collab = @wiki.find_collaborator(user) %>
+					<%= button_to "Remove from Collaborators", {action: "destroy", id: collab.id}, method: :delete, data: {confirm: "Are you sure?"} %>
+				<% else %>
+					<%= button_to "Add to Collaborators", {action: "create", user_id: user.id} %> 
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+</table>
